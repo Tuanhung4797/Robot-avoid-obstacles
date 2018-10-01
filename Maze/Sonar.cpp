@@ -5,9 +5,9 @@
   #include "WProgram.h"
 #endif
 
-#include "EasySonar.h"
+#include "Sonar.h"
 
-EasySonar::EasySonar(int TP, int EP)
+Sonar::Sonar(int TP, int EP)
 {
    pinMode(TP,OUTPUT);
    pinMode(EP,INPUT);
@@ -16,7 +16,7 @@ EasySonar::EasySonar(int TP, int EP)
    Time_out=3000;  // 3000 µs = 50cm // 30000 µs = 5 m 
 }
 
-EasySonar::EasySonar(int TP, int EP, long TO)
+Sonar::Sonar(int TP, int EP, long TO)
 {
    pinMode(TP,OUTPUT);
    pinMode(EP,INPUT);
@@ -25,7 +25,7 @@ EasySonar::EasySonar(int TP, int EP, long TO)
    Time_out=TO;
 }
 
-long EasySonar::Timing()
+long Sonar::Timing()
 {
   digitalWrite(Trig_pin, LOW);
   delayMicroseconds(2);
@@ -38,7 +38,7 @@ long EasySonar::Timing()
   return duration;
 }
 
-float EasySonar::Ranging(int sys)
+float Sonar::Ranging(int sys)
 {
   Timing();
   if (sys) {
@@ -48,7 +48,7 @@ float EasySonar::Ranging(int sys)
 	distance_inc = duration / 74.70 / 2;
 	return distance_inc; }
 }
-float EasySonar::ReadDistance()
+float Sonar::ReadDistance()
 {
   float range = Ranging(CM);
   delay(100);

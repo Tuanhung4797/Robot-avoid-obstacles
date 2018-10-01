@@ -3,8 +3,6 @@
 
 #include "stdint.h"
 #include "Arduino.h"
-///@brief Class for DC Motor Module
-//#define deadband 200
 
 class MotorL298
 {
