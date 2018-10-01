@@ -12,34 +12,34 @@
 #define DistanceStop  15  // Chọn khoảng cách dừng khi robot lại gần tường là 15 cm
 #define TimeAngle90 500   // Chọn thời gian delay để quay đủ góc 90 độ cho robot là 500 ms
 #define SpinSpeed 50      // Chọn tốc độ quay mặc định là 50%
-#define Lspeed 80      // Chọn tốc độ chuẩn của bánh trái là 80%
-#define Rspeed 80      // Chọn tốc độ chuẩn của bánh phải là 80%
+#define Lspeed 80         // Chọn tốc độ chuẩn của bánh trái là 80%
+#define Rspeed 80         // Chọn tốc độ chuẩn của bánh phải là 80%
 //////////////////////////////////////////////////////
 
 #define trig 3  //chân trig của HC-SR04
 #define echo 4  //chân echo của HC-SR04
 #define Servo_pin 5
 
-#define inA1 6 //Định nghĩa chân in1 của động cơ A
-#define inA2 7 //Định nghĩa chân in2 của động cơ A
-#define inB1 8 //Định nghĩa chân in1 của động cơ B
-#define inB2 9 //Định nghĩa chân in2 của động cơ B
+#define inA1 6 //Định nghĩa chân in1 của động cơ bên Phải
+#define inA2 7 //Định nghĩa chân in2 của động cơ bên Phải
+#define inB1 8 //Định nghĩa chân in1 của động cơ bên Trái
+#define inB2 9 //Định nghĩa chân in2 của động cơ bên Trái
 
-Servo SV;  // create servo object to control a servo
+Servo SV;  // tạo đối tượng cho Servo
 Sonar Distance(trig, echo); // tạo đối tượng để đọc khoảng cách
 MotorL298 Robot(inA1,inA2,inB1,inB2); // tạo đối tượng điều khiển motor
 // Tốc độ của robot tính bằng %
 
-float Ahead; // Tạo biến lưu khoảng cách phía trước
+float Ahead;  // Tạo biến lưu khoảng cách phía trước
 float Right;  // Tạo biến lưu khoảng cách bên phải
-float Left; // Tạo biến lưu khoảng cách bên trái
+float Left;   // Tạo biến lưu khoảng cách bên trái
 
 void setup()
 {
-  pinMode(inA1, OUTPUT);//Set chân in1 của dc A là output
-  pinMode(inA2, OUTPUT);//Set chân in2 của dc A là output
-  pinMode(inB1, OUTPUT);//Set chân in1 của dc B là output
-  pinMode(inB2, OUTPUT);//Set chân in2 của dc B là output
+  pinMode(inA1, OUTPUT);  //Set chân in1 của dc A là output
+  pinMode(inA2, OUTPUT);  //Set chân in2 của dc A là output
+  pinMode(inB1, OUTPUT);  //Set chân in1 của dc B là output
+  pinMode(inB2, OUTPUT);  //Set chân in2 của dc B là output
 
   Serial.begin(9600);
   SV.attach(Servo_pin);
