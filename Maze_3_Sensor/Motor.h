@@ -4,14 +4,14 @@
 #include "stdint.h"
 #include "Arduino.h"
 
-class MotorL298
+class MotorL9110
 {
   
   public:
-    MotorL298(int mA1,int mA2,int mENA,int mB1,int mB2,int mENB);        
+    MotorL9110(int motor1A,int motor1B,int motor2A,int motor2B);        
 
-    void runMA(int speed);
-    void runMB(int speed);
+    void runM1(int speed);
+    void runM2(int speed);
     void moveForward(int speed);
     void moveForward(int M1speed, int M2speed);
     void moveBackward(int speed); 
@@ -19,12 +19,10 @@ class MotorL298
     void turnLeft(int speed);
     void stop();
   private:
-    int _A1;
-    int _A2;
-    int _ENA;
-    int _B1;
-    int _B2;
-    int _ENB;
+    int _M1A;
+    int _M1B;
+    int _M2A;
+    int _M2B; 
     
 };
 #endif
